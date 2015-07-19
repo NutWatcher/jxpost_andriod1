@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000"
+    android:orientation="horizontal">
+
+
+    <ImageButton
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_menu_back"
+        android:background="#FF000000"
+        android:id="@+id/imageButton" />
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:textColor="#FFFFFFFF"
+        android:text="账户详情" />
+
+
+
+</LinearLayout><!-- From: file:/E:/AndroidStudioProjects/jxpost/app/src/main/res/layout/title_account_info.xml -->

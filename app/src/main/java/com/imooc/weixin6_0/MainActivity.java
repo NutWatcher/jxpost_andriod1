@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,21 +14,25 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewConfiguration;
 import android.view.Window;
-import android.widget.Button;
+import android.widget.Toast;
+
+import com.activity.AccountSearch;
+import com.activity.Activity_AccountInfo;
 
 public class MainActivity extends FragmentActivity implements OnClickListener,
 		OnPageChangeListener,fragment_accountList.OnFragmentInteractionListener
 {
 
+
 	private ViewPager mViewPager;
 	private List<Fragment> mTabs = new ArrayList<Fragment>();
 	private String[] mTitles = new String[]
-	{ "First Fragment !", "Second Fragment !", "Third Fragment !",
-			"Fourth Fragment !" };
+	{ "Account", "Third Fragment !"};
 	private FragmentPagerAdapter mAdapter;
 
 	private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
@@ -54,16 +57,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	 */
 	private void initEvent()
 	{
-
 		mViewPager.setOnPageChangeListener(this);
-
 	}
 
 	private void initDatas()
 	{
 		for (String title : mTitles)
 		{
-			if ( title == "Third Fragment !"){
+			if ( title == "Account"){
 				fragment_accountList myfragment = new fragment_accountList();
 				Bundle bundle = new Bundle();
 				bundle.putString(title, title);
@@ -100,21 +101,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	{
 		mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
 
-		ChangeColorIconWithText one = (ChangeColorIconWithText) findViewById(R.id.id_indicator_one);
-		mTabIndicators.add(one);
 		ChangeColorIconWithText two = (ChangeColorIconWithText) findViewById(R.id.id_indicator_two);
 		mTabIndicators.add(two);
-		ChangeColorIconWithText three = (ChangeColorIconWithText) findViewById(R.id.id_indicator_three);
-		mTabIndicators.add(three);
 		ChangeColorIconWithText four = (ChangeColorIconWithText) findViewById(R.id.id_indicator_four);
 		mTabIndicators.add(four);
 
-		one.setOnClickListener(this);
 		two.setOnClickListener(this);
-		three.setOnClickListener(this);
 		four.setOnClickListener(this);
 
-		one.setIconAlpha(1.0f);
+		two.setIconAlpha(1.0f);
 
 	}
 
@@ -124,7 +119,18 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_search:
+				goActivity_Search();
+				break;
+			case Menu.FIRST + 6:
+				Toast.makeText(this, "发送菜单被点击了", Toast.LENGTH_LONG).show();
+				break;
+		}
+		return false;
+	}
 	private void setOverflowButtonAlways()
 	{
 		try
@@ -171,7 +177,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	public void onClick(View v)
 	{
 		clickTab(v);
-
 	}
 
 	/**
@@ -185,21 +190,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 
 		switch (v.getId())
 		{
-		case R.id.id_indicator_one:
+		case R.id.id_indicator_two:
 			mTabIndicators.get(0).setIconAlpha(1.0f);
 			mViewPager.setCurrentItem(0, false);
 			break;
-		case R.id.id_indicator_two:
+		case R.id.id_indicator_four:
 			mTabIndicators.get(1).setIconAlpha(1.0f);
 			mViewPager.setCurrentItem(1, false);
-			break;
-		case R.id.id_indicator_three:
-			mTabIndicators.get(2).setIconAlpha(1.0f);
-			mViewPager.setCurrentItem(2, false);
-			break;
-		case R.id.id_indicator_four:
-			mTabIndicators.get(3).setIconAlpha(1.0f);
-			mViewPager.setCurrentItem(3, false);
 			break;
 		}
 	}
@@ -252,5 +249,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+	}
+	private void goActivity_Search(){
+		Intent intent = new Intent(MainActivity.this, AccountSearch.class);
+		startActivityForResult(intent, 1 );
 	}
 }

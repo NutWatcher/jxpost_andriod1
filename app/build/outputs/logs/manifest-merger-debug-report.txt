@@ -65,11 +65,19 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:30:17
 	android:name
 		ADDED from AndroidManifest.xml:30:27
-activity#com.imooc.weixin6_0.Activity_AccountInfo
+activity#com.activity.Activity_AccountInfo
 ADDED from AndroidManifest.xml:33:9
 	android:label
-		ADDED from AndroidManifest.xml:36:13
-	android:theme
-		ADDED from AndroidManifest.xml:34:13
-	android:name
 		ADDED from AndroidManifest.xml:35:13
+	android:theme
+		ADDED from AndroidManifest.xml:36:13
+	android:name
+		ADDED from AndroidManifest.xml:34:13
+activity#com.activity.AccountSearch
+ADDED from AndroidManifest.xml:38:9
+	android:label
+		ADDED from AndroidManifest.xml:40:13
+	android:theme
+		ADDED from AndroidManifest.xml:41:13
+	android:name
+		ADDED from AndroidManifest.xml:39:13

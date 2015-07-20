@@ -33,9 +33,10 @@ import java.util.Map;
  */
 public class fragment_accountList extends Fragment {
 
+    private static boolean bIsOnSearch = false;
+
     private List<Map<String,Object>> dataList = new ArrayList<Map<String, Object>>();
     private SimpleAdapter adapter ;
-    private Button button ;
     private TextView textView ;
     private ListView listView ;
 
@@ -88,13 +89,6 @@ public class fragment_accountList extends Fragment {
 
         Log.i("dd","start1");
         textView = (TextView)getActivity().findViewById(R.id.text);
-        button = (Button)getActivity().findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                textView.setText("lala");
-            }
-        });
 
         for (int i = 0 ; i < 10 ; i ++ ){
             Map<String, Object> map = new HashMap<String, Object>();
@@ -119,8 +113,6 @@ public class fragment_accountList extends Fragment {
 
     }
 
-
-
     /*public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -144,16 +136,6 @@ public class fragment_accountList extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String uri);
     }

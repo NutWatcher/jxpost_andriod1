@@ -1,4 +1,4 @@
-package com.imooc.weixin6_0;
+package com.activity;
 
 import android.app.Activity;
 import android.graphics.Rect;
@@ -7,11 +7,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import com.imooc.weixin6_0.R;
 
 
 public class Activity_AccountInfo extends Activity {
@@ -21,19 +21,12 @@ public class Activity_AccountInfo extends Activity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-
         Rect rect = new Rect();
         button.getWindowVisibleDisplayFrame(rect);
         Window window = getWindow();
-        // 状态栏的高度
-        int statusBarHeight = rect.top;
-        // 标题栏跟状态栏的总体高度
-        int contentViewTop = window.findViewById(Window.ID_ANDROID_CONTENT).getTop();
-        // 标题栏的高度：用上面的值减去状态栏的高度及为标题栏高度
-        int titleBarHeight = contentViewTop - statusBarHeight;
-
-        Log.i("heigjt", String.valueOf(titleBarHeight));
-
+        int statusBarHeight = rect.top;// 状态栏的高度
+        int contentViewTop = window.findViewById(Window.ID_ANDROID_CONTENT).getTop(); // 标题栏跟状态栏的总体高度
+        int titleBarHeight = contentViewTop - statusBarHeight;// 标题栏的高度：用上面的值减去状态栏的高度及为标题栏高度
         LinearLayout.LayoutParams para = new LinearLayout.LayoutParams(titleBarHeight,titleBarHeight);
         button.setLayoutParams(para);
     }

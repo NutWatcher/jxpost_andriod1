@@ -31,8 +31,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.imooc.weixin6_0.Activity_AccountInfo"
+            android:name="com.activity.Activity_AccountInfo"
             android:label="@string/title_activity_activity__account_info"
+            android:theme="@style/titlebarstyle" >
+        </activity>
+        <activity
+            android:name="com.activity.AccountSearch"
+            android:label="@string/title_activity_account_search"
             android:theme="@style/titlebarstyle" >
         </activity>
     </application>

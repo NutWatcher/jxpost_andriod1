@@ -10,20 +10,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <TextView
-            android:id="@+id/text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button"
+            android:layout_height="20dp"
+            android:text="开启筛选中"
+            android:id="@+id/textView"
+            android:textColor="#ffff5d21"
             android:layout_gravity="center_horizontal" />
-
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +24,8 @@
 
 
 
+
     </LinearLayout>
 
 </FrameLayout>
-<!-- From: file:/E:/AndroidStudioProjects/jxpost/app/src/main/res/layout/fragment_fragment_account_list.xml -->
+<!-- From: file:/I:/andriod/jxpost_andriod1/app/src/main/res/layout/fragment_fragment_account_list.xml -->

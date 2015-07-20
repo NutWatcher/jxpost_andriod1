@@ -51,52 +51,57 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020002;
         public static final int ic_menu_allfriends=0x7f020003;
         public static final int ic_menu_back=0x7f020004;
-        public static final int ic_menu_emoticons=0x7f020005;
-        public static final int ic_menu_friendslist=0x7f020006;
-        public static final int ic_menu_start_conversation=0x7f020007;
-        public static final int men_scan_icon=0x7f020008;
-        public static final int menu_add_icon=0x7f020009;
-        public static final int menu_feedback_icon=0x7f02000a;
-        public static final int menu_group_chat_icon=0x7f02000b;
-        public static final int tab_address_normal=0x7f02000c;
-        public static final int tab_bg=0x7f02000d;
-        public static final int tab_find_frd_normal=0x7f02000e;
-        public static final int tab_settings_normal=0x7f02000f;
-        public static final int tab_weixin_normal=0x7f020010;
+        public static final int ic_menu_copy_holo_light=0x7f020005;
+        public static final int ic_menu_emoticons=0x7f020006;
+        public static final int ic_menu_friendslist=0x7f020007;
+        public static final int ic_menu_start_conversation=0x7f020008;
+        public static final int men_scan_icon=0x7f020009;
+        public static final int menu_add_icon=0x7f02000a;
+        public static final int menu_feedback_icon=0x7f02000b;
+        public static final int menu_group_chat_icon=0x7f02000c;
+        public static final int tab_address_normal=0x7f02000d;
+        public static final int tab_bg=0x7f02000e;
+        public static final int tab_find_frd_normal=0x7f02000f;
+        public static final int tab_settings_normal=0x7f020010;
+        public static final int tab_weixin_normal=0x7f020011;
     }
     public static final class id {
-        public static final int account=0x7f080002;
-        public static final int action_add_friend=0x7f080011;
-        public static final int action_feedback=0x7f080013;
-        public static final int action_group_chat=0x7f080010;
-        public static final int action_scan=0x7f080012;
-        public static final int action_search=0x7f08000f;
-        public static final int action_settings=0x7f080014;
-        public static final int button=0x7f08000c;
-        public static final int id_indicator_four=0x7f08000a;
-        public static final int id_indicator_one=0x7f080007;
-        public static final int id_indicator_three=0x7f080009;
-        public static final int id_indicator_two=0x7f080008;
-        public static final int id_viewpager=0x7f080006;
-        public static final int imageButton=0x7f08000e;
-        public static final int listView=0x7f08000d;
-        public static final int listmoney=0x7f080001;
-        public static final int listname=0x7f080000;
-        public static final int opentime=0x7f080003;
-        public static final int score=0x7f080004;
-        public static final int text=0x7f08000b;
-        public static final int type=0x7f080005;
+        public static final int account=0x7f08000a;
+        public static final int action_search=0x7f080015;
+        public static final int action_settings=0x7f080016;
+        public static final int button=0x7f080006;
+        public static final int button2=0x7f080007;
+        public static final int checkBox1=0x7f080003;
+        public static final int checkBox2=0x7f080004;
+        public static final int checkBox3=0x7f080005;
+        public static final int id_indicator_four=0x7f080010;
+        public static final int id_indicator_two=0x7f08000f;
+        public static final int id_viewpager=0x7f08000e;
+        public static final int imageButton=0x7f080013;
+        public static final int listView=0x7f080012;
+        public static final int listmoney=0x7f080009;
+        public static final int listname=0x7f080008;
+        public static final int money=0x7f080002;
+        public static final int name=0x7f080001;
+        public static final int opentime=0x7f08000b;
+        public static final int score=0x7f08000c;
+        public static final int text=0x7f080014;
+        public static final int textView=0x7f080011;
+        public static final int textView2=0x7f080000;
+        public static final int type=0x7f08000d;
     }
     public static final class layout {
-        public static final int activity_activity__account_info=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int fragment_account_list_view=0x7f030002;
-        public static final int fragment_fragment_account_list=0x7f030003;
-        public static final int title_account_info=0x7f030004;
+        public static final int activity_account_search=0x7f030000;
+        public static final int activity_activity__account_info=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int fragment_account_list_view=0x7f030003;
+        public static final int fragment_fragment_account_list=0x7f030004;
+        public static final int title_account_info=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f070000;
-        public static final int menu_activity__account_info=0x7f070001;
+        public static final int menu_account_search=0x7f070001;
+        public static final int menu_activity__account_info=0x7f070002;
     }
     public static final class string {
         public static final int action_add=0x7f060000;
@@ -109,10 +114,11 @@ containing a value of this type.
         public static final int menu_feedback=0x7f060007;
         public static final int menu_group_chat=0x7f060008;
         public static final int menu_scan=0x7f060009;
-        public static final int tab_contact=0x7f06000a;
+        public static final int tab_account=0x7f06000a;
         public static final int tab_found=0x7f06000b;
         public static final int tab_me=0x7f06000c;
-        public static final int title_activity_activity__account_info=0x7f06000d;
+        public static final int title_activity_account_search=0x7f06000d;
+        public static final int title_activity_activity__account_info=0x7f06000e;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
@@ -125,10 +131,10 @@ containing a value of this type.
         public static final int AppBaseTheme=0x7f050000;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050004;
-        public static final int CustomizedWindowTitleBackground=0x7f050001;
-        public static final int titlebarstyle=0x7f050002;
-        public static final int weixinActionOverflowButtonStyle=0x7f050003;
+        public static final int AppTheme=0x7f050002;
+        public static final int CustomizedWindowTitleBackground=0x7f050003;
+        public static final int titlebarstyle=0x7f050004;
+        public static final int weixinActionOverflowButtonStyle=0x7f050001;
     }
     public static final class styleable {
         /** Attributes that can be used with a ChangeColorIconWithText.

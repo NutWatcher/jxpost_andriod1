@@ -6,6 +6,12 @@
     <attr format="reference" name="icon"/>
     <attr format="string" name="text"/>
     <attr format="dimension" name="text_size"/>
+    <!-- From: file:/I:/andriod/jxpost_andriod1/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <color name="my_black_color">#ff000000</color>
+    <color name="my_deepgray_color">#ff999999</color>
+    <color name="my_gray_color">#ffebebeb</color>
+    <color name="my_white_color">#ffffffff</color>
     <declare-styleable name="ChangeColorIconWithText"><attr name="icon"/><attr name="color"/><attr name="text"/><attr name="text_size"/></declare-styleable>
     <!-- From: file:/I:/andriod/jxpost_andriod1/app/src/main/res/values/dimens.xml -->
     <eat-comment/>

@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:background="#FF000000"
     android:orientation="horizontal">
-
-
     <ImageButton
         android:layout_margin="5dp"
         android:padding="5dp"
@@ -24,7 +22,4 @@
         android:gravity="center_vertical"
         android:textColor="#FFFFFFFF"
         android:text="账户详情" />
-
-
-
 </LinearLayout><!-- From: file:/I:/andriod/jxpost_andriod1/app/src/main/res/layout/title_account_info.xml -->

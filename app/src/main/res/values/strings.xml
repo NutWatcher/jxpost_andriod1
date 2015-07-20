@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="my_black_color">#ff000000</color>
+    <color name="my_gray_color">#ffebebeb</color>
+    <color name="my_deepgray_color">#ff999999</color>
+    <color name="my_white_color">#ffffffff</color>
 
-    <string name="app_name">邮政营销</string>
+
+
+
+<string name="app_name">邮政营销</string>
     <string name="action_search">查找</string>
     <string name="action_add">添加</string>
     <string name="menu_group_chat">发起群聊</string>

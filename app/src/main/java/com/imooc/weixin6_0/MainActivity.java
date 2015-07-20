@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -25,14 +26,14 @@ import com.activity.AccountSearch;
 import com.activity.Activity_AccountInfo;
 
 public class MainActivity extends FragmentActivity implements OnClickListener,
-		OnPageChangeListener,fragment_accountList.OnFragmentInteractionListener
+		OnPageChangeListener,fragment_accountList.OnFragmentInteractionListener,Fragment_userInfo.OnFragmentInteractionListener
 {
 
 
 	private ViewPager mViewPager;
 	private List<Fragment> mTabs = new ArrayList<Fragment>();
 	private String[] mTitles = new String[]
-	{ "Account", "Third Fragment !"};
+	{ "Account", "Me"};
 	private FragmentPagerAdapter mAdapter;
 
 	private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
@@ -71,8 +72,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 				myfragment.setArguments(bundle);
 				mTabs.add(myfragment);
 			}
-			else{
-				TabFragment tabFragment = new TabFragment();
+			else if ( title == "Me"){
+				Fragment_userInfo tabFragment = new Fragment_userInfo();
 				Bundle bundle = new Bundle();
 				bundle.putString(TabFragment.TITLE, title);
 				tabFragment.setArguments(bundle);
@@ -239,7 +240,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 	{
 
 	}
+	@Override
+	public void onFragmentInteraction(Uri uri) {
 
+	}
 	@Override
 	public void onFragmentInteraction(String uri) {
 		Log.i("log", uri);
@@ -255,3 +259,4 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 		startActivityForResult(intent, 1 );
 	}
 }
+

@@ -1,4 +1,4 @@
-package com.imooc.weixin6_0;
+package com.activity;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -22,8 +22,11 @@ import android.view.ViewConfiguration;
 import android.view.Window;
 import android.widget.Toast;
 
-import com.activity.AccountSearch;
-import com.activity.Activity_AccountInfo;
+import com.imooc.weixin6_0.ChangeColorIconWithText;
+import com.imooc.weixin6_0.Fragment_userInfo;
+import com.imooc.weixin6_0.R;
+import com.imooc.weixin6_0.TabFragment;
+import com.imooc.weixin6_0.fragment_accountList;
 
 public class MainActivity extends FragmentActivity implements OnClickListener,
 		OnPageChangeListener,fragment_accountList.OnFragmentInteractionListener,Fragment_userInfo.OnFragmentInteractionListener

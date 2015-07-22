@@ -15,7 +15,7 @@
         android:layout_marginRight="10dp">
 
         <TextView
-            android:gravity="start"
+            android:gravity="left"
             android:id="@+id/listname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:text="张三" />
 
         <TextView
-            android:gravity="end"
+            android:gravity="right"
             android:id="@+id/listmoney"
             android:layout_width="wrap_content"
             android:layout_weight="1"

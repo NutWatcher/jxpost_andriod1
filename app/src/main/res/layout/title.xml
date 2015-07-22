@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#FF000000"
+    android:orientation="horizontal">
+    <ImageButton
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_menu_back"
+        android:background="#FF000000"
+        android:id="@+id/title_imageButton" />
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:textColor="#FFFFFFFF"
+        android:text="这里是标题" />
+    <LinearLayout
+        android:gravity="center_vertical|right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFFFF"
+            android:text="这里是标题" />
+        <ImageButton
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_menu_back"
+            android:background="#FF000000"
+            android:id="@+id/title_right_imageButton" />
+
+    </LinearLayout>
+</LinearLayout>

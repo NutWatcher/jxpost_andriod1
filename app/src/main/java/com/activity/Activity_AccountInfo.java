@@ -10,13 +10,16 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.imooc.weixin6_0.R;
 
 
 public class Activity_AccountInfo extends Activity {
 
+    private TextView title_textView ;
     private ImageButton button ;
+    private ImageButton button1 ;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -38,9 +41,11 @@ public class Activity_AccountInfo extends Activity {
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE); // 注意顺序
         setContentView(R.layout.activity_activity__account_info);// 注意顺序
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,      // 注意顺序
-                R.layout.title_account_info);
+                R.layout.title);
 
-        button = (ImageButton) findViewById(R.id.imageButton);
+        button1 = (ImageButton)findViewById(R.id.title_right_imageButton);
+        button1.setVisibility(View.GONE);
+        button = (ImageButton) findViewById(R.id.title_imageButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

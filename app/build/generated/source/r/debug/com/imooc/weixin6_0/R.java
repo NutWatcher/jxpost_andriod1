@@ -42,10 +42,10 @@ containing a value of this type.
         public static final int text_size=0x7f010003;
     }
     public static final class color {
-        public static final int my_black_color=0x7f060000;
-        public static final int my_deepgray_color=0x7f060001;
-        public static final int my_gray_color=0x7f060002;
-        public static final int my_white_color=0x7f060003;
+        public static final int my_black_color=0x7f050000;
+        public static final int my_deepgray_color=0x7f050001;
+        public static final int my_gray_color=0x7f050002;
+        public static final int my_white_color=0x7f050003;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f040000;
@@ -73,8 +73,8 @@ containing a value of this type.
     }
     public static final class id {
         public static final int account=0x7f09000a;
-        public static final int action_search=0x7f090018;
-        public static final int action_settings=0x7f090019;
+        public static final int action_search=0x7f09001c;
+        public static final int action_settings=0x7f09001d;
         public static final int button=0x7f090006;
         public static final int button2=0x7f090007;
         public static final int checkBox1=0x7f090003;
@@ -83,7 +83,7 @@ containing a value of this type.
         public static final int id_indicator_four=0x7f090010;
         public static final int id_indicator_two=0x7f09000f;
         public static final int id_viewpager=0x7f09000e;
-        public static final int imageButton=0x7f090016;
+        public static final int imageButton=0x7f09001a;
         public static final int listView=0x7f090012;
         public static final int listmoney=0x7f090009;
         public static final int listname=0x7f090008;
@@ -94,57 +94,62 @@ containing a value of this type.
         public static final int password=0x7f090014;
         public static final int score=0x7f09000c;
         public static final int socre=0x7f090013;
-        public static final int text=0x7f090017;
+        public static final int text=0x7f09001b;
         public static final int textView=0x7f090011;
         public static final int textView2=0x7f090000;
+        public static final int title_imageButton=0x7f090016;
+        public static final int title_right_imageButton=0x7f090019;
+        public static final int title_text=0x7f090017;
+        public static final int title_text1=0x7f090018;
         public static final int type=0x7f09000d;
     }
     public static final class layout {
         public static final int activity_account_search=0x7f030000;
         public static final int activity_activity__account_info=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int fragment_account_list_view=0x7f030003;
-        public static final int fragment_fragment_account_list=0x7f030004;
-        public static final int fragment_fragment_user_info=0x7f030005;
-        public static final int title_account_info=0x7f030006;
+        public static final int activity_index=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int fragment_account_list_view=0x7f030004;
+        public static final int fragment_fragment_account_list=0x7f030005;
+        public static final int fragment_fragment_user_info=0x7f030006;
+        public static final int title=0x7f030007;
+        public static final int title_account_info=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;
         public static final int menu_account_search=0x7f080001;
         public static final int menu_activity__account_info=0x7f080002;
+        public static final int my_menu=0x7f080003;
     }
     public static final class string {
-        public static final int action_add=0x7f070000;
-        public static final int action_search=0x7f070001;
-        public static final int action_settings=0x7f070002;
-        public static final int app_name=0x7f070003;
-        public static final int hello_blank_fragment=0x7f070004;
-        public static final int hello_world=0x7f070005;
-        public static final int menu_addfriend=0x7f070006;
-        public static final int menu_feedback=0x7f070007;
-        public static final int menu_group_chat=0x7f070008;
-        public static final int menu_scan=0x7f070009;
-        public static final int tab_account=0x7f07000a;
-        public static final int tab_found=0x7f07000b;
-        public static final int tab_me=0x7f07000c;
-        public static final int title_activity_account_search=0x7f07000d;
-        public static final int title_activity_activity__account_info=0x7f07000e;
+        public static final int action_add=0x7f060000;
+        public static final int action_search=0x7f060001;
+        public static final int action_settings=0x7f060002;
+        public static final int app_name=0x7f060003;
+        public static final int hello_blank_fragment=0x7f060004;
+        public static final int hello_world=0x7f060005;
+        public static final int menu_addfriend=0x7f060006;
+        public static final int menu_feedback=0x7f060007;
+        public static final int menu_group_chat=0x7f060008;
+        public static final int menu_scan=0x7f060009;
+        public static final int tab_account=0x7f06000a;
+        public static final int tab_found=0x7f06000b;
+        public static final int tab_me=0x7f06000c;
+        public static final int title_activity_account_search=0x7f06000d;
+        public static final int title_activity_activity__account_info=0x7f06000e;
     }
     public static final class style {
-        /**  API 11 theme customizations can go here. 
-
+        /** 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f050000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050002;
-        public static final int CustomizedWindowTitleBackground=0x7f050003;
-        public static final int titlebarstyle=0x7f050004;
-        public static final int weixinActionOverflowButtonStyle=0x7f050001;
+        public static final int AppTheme=0x7f070001;
+        public static final int CustomizedWindowTitleBackground=0x7f070002;
+        public static final int titlebarstyle=0x7f070003;
     }
     public static final class styleable {
         /** Attributes that can be used with a ChangeColorIconWithText.

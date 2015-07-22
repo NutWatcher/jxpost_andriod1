@@ -1,5 +1,6 @@
 package com.activity;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import android.view.ViewConfiguration;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.communicate.Con_Account;
 import com.imooc.weixin6_0.ChangeColorIconWithText;
 import com.imooc.weixin6_0.Fragment_userInfo;
 import com.imooc.weixin6_0.R;
@@ -29,237 +31,208 @@ import com.imooc.weixin6_0.TabFragment;
 import com.imooc.weixin6_0.fragment_accountList;
 
 public class MainActivity extends FragmentActivity implements OnClickListener,
-		OnPageChangeListener,fragment_accountList.OnFragmentInteractionListener,Fragment_userInfo.OnFragmentInteractionListener
-{
+        OnPageChangeListener, fragment_accountList.OnFragmentInteractionListener, Fragment_userInfo.OnFragmentInteractionListener {
+
+    private ViewPager mViewPager;
+    private List<Fragment> mTabs = new ArrayList<Fragment>();
+    private String[] mTitles = new String[]
+            {"Account", "Me"};
+    private FragmentPagerAdapter mAdapter;
+    private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setOverflowButtonAlways();
+        //getActionBar().setDisplayShowHomeEnabled(false);
+
+        initView();
+        initDatas();
+        mViewPager.setAdapter(mAdapter);
+        initEvent();
+
+    }
+
+    /**
+     * 初始化所有事件
+     */
+    private void initEvent() {
+        mViewPager.setOnPageChangeListener(this);
+    }
+
+    private void initDatas() {
+        for (String title : mTitles) {
+            if (title == "Account") {
+                fragment_accountList myfragment = new fragment_accountList();
+                Bundle bundle = new Bundle();
+                bundle.putString(title, title);
+                myfragment.setArguments(bundle);
+                mTabs.add(myfragment);
+            } else if (title == "Me") {
+                Fragment_userInfo tabFragment = new Fragment_userInfo();
+                Bundle bundle = new Bundle();
+                bundle.putString(TabFragment.TITLE, title);
+                tabFragment.setArguments(bundle);
+                mTabs.add(tabFragment);
+            }
+        }
+
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+
+            @Override
+            public int getCount() {
+                return mTabs.size();
+            }
+
+            @Override
+            public Fragment getItem(int position) {
+                return mTabs.get(position);
+            }
+        };
+    }
+
+    private void initView() {
+        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+
+        ChangeColorIconWithText two = (ChangeColorIconWithText) findViewById(R.id.id_indicator_two);
+        mTabIndicators.add(two);
+        ChangeColorIconWithText four = (ChangeColorIconWithText) findViewById(R.id.id_indicator_four);
+        mTabIndicators.add(four);
+
+        two.setOnClickListener(this);
+        four.setOnClickListener(this);
+
+        two.setIconAlpha(1.0f);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                goActivity_Search();
+                break;
+            case Menu.FIRST + 6:
+                Toast.makeText(this, "发送菜单被点击了", Toast.LENGTH_LONG).show();
+                break;
+        }
+        return false;
+    }
+
+    private void setOverflowButtonAlways() {
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKey = ViewConfiguration.class
+                    .getDeclaredField("sHasPermanentMenuKey");
+            menuKey.setAccessible(true);
+            menuKey.setBoolean(config, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
-	private ViewPager mViewPager;
-	private List<Fragment> mTabs = new ArrayList<Fragment>();
-	private String[] mTitles = new String[]
-	{ "Account", "Me"};
-	private FragmentPagerAdapter mAdapter;
 
-	private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
+    @Override
+    public void onClick(View v) {
+        clickTab(v);
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		setOverflowButtonAlways();
-		getActionBar().setDisplayShowHomeEnabled(false);
+    /**
+     * 点击Tab按钮
+     *
+     * @param v
+     */
+    private void clickTab(View v) {
+        resetOtherTabs();
 
-		initView();
-		initDatas();
-		mViewPager.setAdapter(mAdapter);
-		initEvent();
+        switch (v.getId()) {
+            case R.id.id_indicator_two:
+                mTabIndicators.get(0).setIconAlpha(1.0f);
+                mViewPager.setCurrentItem(0, false);
+                break;
+            case R.id.id_indicator_four:
+                mTabIndicators.get(1).setIconAlpha(1.0f);
+                mViewPager.setCurrentItem(1, false);
+                break;
+        }
+    }
 
-	}
+    /**
+     * 重置其他的TabIndicator的颜色
+     */
+    private void resetOtherTabs() {
+        for (int i = 0; i < mTabIndicators.size(); i++) {
+            mTabIndicators.get(i).setIconAlpha(0);
+        }
+    }
 
-	/**
-	 * 初始化所有事件
-	 */
-	private void initEvent()
-	{
-		mViewPager.setOnPageChangeListener(this);
-	}
+    @Override
+    public void onPageScrolled(int position, float positionOffset,
+                               int positionOffsetPixels) {
+        // Log.e("TAG", "position = " + position + " ,positionOffset =  "
+        // + positionOffset);
+        if (positionOffset > 0) {
+            ChangeColorIconWithText left = mTabIndicators.get(position);
+            ChangeColorIconWithText right = mTabIndicators.get(position + 1);
+            left.setIconAlpha(1 - positionOffset);
+            right.setIconAlpha(positionOffset);
+        }
 
-	private void initDatas()
-	{
-		for (String title : mTitles)
-		{
-			if ( title == "Account"){
-				fragment_accountList myfragment = new fragment_accountList();
-				Bundle bundle = new Bundle();
-				bundle.putString(title, title);
-				myfragment.setArguments(bundle);
-				mTabs.add(myfragment);
-			}
-			else if ( title == "Me"){
-				Fragment_userInfo tabFragment = new Fragment_userInfo();
-				Bundle bundle = new Bundle();
-				bundle.putString(TabFragment.TITLE, title);
-				tabFragment.setArguments(bundle);
-				mTabs.add(tabFragment);
-			}
-		}
+    }
 
-		mAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
-		{
+    @Override
+    public void onPageSelected(int position) {
 
-			@Override
-			public int getCount()
-			{
-				return mTabs.size();
-			}
+    }
 
-			@Override
-			public Fragment getItem(int position)
-			{
-				return mTabs.get(position);
-			}
-		};
-	}
+    @Override
+    public void onPageScrollStateChanged(int state) {
 
-	private void initView()
-	{
-		mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+    }
 
-		ChangeColorIconWithText two = (ChangeColorIconWithText) findViewById(R.id.id_indicator_two);
-		mTabIndicators.add(two);
-		ChangeColorIconWithText four = (ChangeColorIconWithText) findViewById(R.id.id_indicator_four);
-		mTabIndicators.add(four);
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
-		two.setOnClickListener(this);
-		four.setOnClickListener(this);
+    }
 
-		two.setIconAlpha(1.0f);
+    @Override
+    public void onFragmentInteraction(String uri) {
+        Log.i("log", uri);
+        Intent intent = new Intent(MainActivity.this, Activity_AccountInfo.class);
+        startActivityForResult(intent, 1);
+    }
 
-	}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.action_search:
-				goActivity_Search();
-				break;
-			case Menu.FIRST + 6:
-				Toast.makeText(this, "发送菜单被点击了", Toast.LENGTH_LONG).show();
-				break;
-		}
-		return false;
-	}
-	private void setOverflowButtonAlways()
-	{
-		try
-		{
-			ViewConfiguration config = ViewConfiguration.get(this);
-			Field menuKey = ViewConfiguration.class
-					.getDeclaredField("sHasPermanentMenuKey");
-			menuKey.setAccessible(true);
-			menuKey.setBoolean(config, false);
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
+    }
 
-	/**
-	 * 设置menu显示icon
-	 */
-	@Override
-	public boolean onMenuOpened(int featureId, Menu menu)
-	{
+    private void goActivity_Search() {
 
-		if (featureId == Window.FEATURE_ACTION_BAR && menu != null)
-		{
-			if (menu.getClass().getSimpleName().equals("MenuBuilder"))
-			{
-				try
-				{
-					Method m = menu.getClass().getDeclaredMethod(
-							"setOptionalIconsVisible", Boolean.TYPE);
-					m.setAccessible(true);
-					m.invoke(menu, true);
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
+        Thread thread = (new Thread() {
+            @Override
+            public void run()
+            {
+                /*Con_Account con = new Con_Account();
+                try {
+                    con.getDate();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
+            }
+        });  ;
 
-		return super.onMenuOpened(featureId, menu);
-	}
-
-	@Override
-	public void onClick(View v)
-	{
-		clickTab(v);
-	}
-
-	/**
-	 * 点击Tab按钮
-	 * 
-	 * @param v
-	 */
-	private void clickTab(View v)
-	{
-		resetOtherTabs();
-
-		switch (v.getId())
-		{
-		case R.id.id_indicator_two:
-			mTabIndicators.get(0).setIconAlpha(1.0f);
-			mViewPager.setCurrentItem(0, false);
-			break;
-		case R.id.id_indicator_four:
-			mTabIndicators.get(1).setIconAlpha(1.0f);
-			mViewPager.setCurrentItem(1, false);
-			break;
-		}
-	}
-
-	/**
-	 * 重置其他的TabIndicator的颜色
-	 */
-	private void resetOtherTabs()
-	{
-		for (int i = 0; i < mTabIndicators.size(); i++)
-		{
-			mTabIndicators.get(i).setIconAlpha(0);
-		}
-	}
-
-	@Override
-	public void onPageScrolled(int position, float positionOffset,
-			int positionOffsetPixels)
-	{
-		// Log.e("TAG", "position = " + position + " ,positionOffset =  "
-		// + positionOffset);
-		if (positionOffset > 0)
-		{
-			ChangeColorIconWithText left = mTabIndicators.get(position);
-			ChangeColorIconWithText right = mTabIndicators.get(position + 1);
-			left.setIconAlpha(1 - positionOffset);
-			right.setIconAlpha(positionOffset);
-		}
-
-	}
-
-	@Override
-	public void onPageSelected(int position)
-	{
-
-	}
-
-	@Override
-	public void onPageScrollStateChanged(int state)
-	{
-
-	}
-	@Override
-	public void onFragmentInteraction(Uri uri) {
-
-	}
-	@Override
-	public void onFragmentInteraction(String uri) {
-		Log.i("log", uri);
-		Intent intent = new Intent(MainActivity.this, Activity_AccountInfo.class);
-		startActivityForResult(intent, 1 );
-	}
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-	}
-	private void goActivity_Search(){
-		Intent intent = new Intent(MainActivity.this, AccountSearch.class);
-		startActivityForResult(intent, 1 );
-	}
+        thread.start();
+        Intent intent = new Intent(MainActivity.this, AccountSearch.class);
+        startActivityForResult(intent, 1);
+    }
 }
 

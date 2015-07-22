@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 10
     buildToolsVersion "22.0.1"
 
 
     defaultConfig {
         applicationId "com.imooc.weixin6_0"
-        minSdkVersion 11
+        minSdkVersion 10
         targetSdkVersion 19
     }
 

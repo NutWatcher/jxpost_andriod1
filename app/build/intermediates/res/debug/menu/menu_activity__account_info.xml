@@ -2,6 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.activity.Activity_AccountInfo">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" android:showAsAction="never" />
+        android:orderInCategory="100" />
 </menu>
 <!-- From: file:/E:/AndroidStudioProjects/jxpost_andriod1/app/src/main/res/menu/menu_activity__account_info.xml -->
